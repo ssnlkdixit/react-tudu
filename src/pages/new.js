@@ -41,6 +41,11 @@ function AddNew() {
       clearData();
     }, 3000);
   };
+  const something=(event)=> {
+    if (event.keyCode === 13) {
+        console.log('enter')
+    }
+}
 
   return (
     <>
@@ -68,27 +73,20 @@ function AddNew() {
                   disabled={loading}
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
+                  onKeyDown={(e) => something(e)}
                 />
               </label>
               <label className='block my-8' htmlFor='description'>
                 <div className='flex flex-row items-center justify-between'>
-                  <span className='text-gray-700'>Description</span>
-                  <em className='text-sm text-gray-700'>Optional</em>
+                  
                 </div>
-                <textarea
-                  className='block w-full mt-1 bg-gray-100 border-transparent rounded-md focus:border-gray-500 focus:bg-white focus:ring-0'
-                  name='description'
-                  rows='3'
-                  placeholder="Don't forget the ice cream!"
-                  disabled={loading}
-                  value={description}
-                  onChange={(e) => {
-                    setDescription(e.target.value);
-                  }}
-                ></textarea>
+                
               </label>
               <div className='mt-8'>
                 <button
+                type = 'submit'
+                
+               
                   className={`${
                     loading
                       ? 'bg-gray-200 cursor-not-allowed'
