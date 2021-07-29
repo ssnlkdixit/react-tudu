@@ -23,7 +23,11 @@ function ViewTodo(props) {
   const [title, setTitle] = useState(item && item.title);
   
 
-  
+  const history = useHistory();
+  const redirectToHome = () => {
+    const path = '/';
+    history.push(path);
+  };
 
   const deleteItem = () => {
     dispatch({
