@@ -19,16 +19,11 @@ function ViewTodo(props) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // initialise input states with existing values
+ 
   const [title, setTitle] = useState(item && item.title);
-  const [description, setDescription] = useState(item && item.description);
+  
 
-  const history = useHistory();
-
-  const redirectToHome = () => {
-    const path = '/';
-    history.push(path);
-  };
+  
 
   const deleteItem = () => {
     dispatch({
@@ -48,7 +43,7 @@ function ViewTodo(props) {
       type: ACTIONS.SAVE,
       payload: {
         title: title.toLowerCase(),
-        description,
+        
         id: item.id,
         complete: item.complete,
       },
@@ -94,23 +89,7 @@ function ViewTodo(props) {
                     onChange={(e) => setTitle(e.target.value)}
                   />
                 </label>
-                <label className='block my-8' htmlFor='description'>
-                  <div className='flex flex-row items-center justify-between'>
-                    <span className='text-gray-700'>Description</span>
-                    <em className='text-gray-700 text-sm'>Optional</em>
-                  </div>
-                  <textarea
-                    className='mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0'
-                    name='description'
-                    rows='3'
-                    disabled={loading}
-                    placeholder={description}
-                    value={description}
-                    onChange={(e) => {
-                      setDescription(e.target.value);
-                    }}
-                  ></textarea>
-                </label>
+                
                 <div className='mt-8'>
                   <button
                     className={`${
